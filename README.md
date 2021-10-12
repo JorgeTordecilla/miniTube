@@ -2,10 +2,6 @@
 
 Aplicativo web para ver y subir video filtrados por tag  o por busqueda.
 
-## Description
-
-An in-depth paragraph about your project and overview of use.
-
 ## Inicio
 ### Dependencias
 
@@ -26,7 +22,7 @@ npm run dev
 npm test
 ```
 
-## Authors
+## Autor
 
 Contributors names and contact info
 
