@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include ('partials/mainHead')%>
+    <script
+      src="https://kit.fontawesome.com/6fc7def821.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>PlayVideo| <%-video.vidTitle%></title>
+  </head>
+
+  <body>
+    <%- include ('partials/navBar')%>
+    <div class="container d-flex justify-content-center">
+      <div class="card mt-5" style="width: 70rem">
+        <h1 class="card-header"><%-video.vidTitle%></h1>
+        <div class="card-body d-flex justify-content-center">
+          <video class="col-8" id="videoPlayer " controls>
+            <source src="/video/<%-video.filename%>" type="video/mp4 " />
+          </video>
+        </div>
+        <div class="card-footer">
+          <form method="POST" action="/ranking">
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="like"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-success" for="like"
+              ><i class="far fa-thumbs-up"></i
+              ><span id="like_label"> <%-video.likes%> </span>
+            </label>
+            <input
+              type="radio"
+              class="btn-check"
+              name="options"
+              id="dislike"
+              autocomplete="off"
+            />
+            <label class="btn btn-outline-danger" for="dislike"
+              ><i class="far fa-thumbs-down"></i
+              ><span id="dislike_label"> <%-video.dislike%></span>
+            </label>
+            <div class="btn btn-warning" disabled>
+              <i class="fas fa-eye"></i>
+              <span id="views"> <%-video.views%> </span>
+            </div>
+          </form>
+          <h4><%-video.vidDescription%></h4>
+          <h6>Tag: <%-video.tag%></h6>
+        </div>
+      </div>
+    </div>
+    <%- include ('partials/mainFooter')%>
+    <script src="js/videoRating.js"></script>
+  </body>
+</html>

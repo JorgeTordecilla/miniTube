@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include ('partials/mainHead')%>
+    <title>Mini Youtube | Upload</title>
+  </head>
+
+  <body>
+    <%- include ('partials/navBar')%>
+    <!-- Form -->
+    <div class="d-flex justify-content-around mb-5">
+      <form
+        action="/upload"
+        method="POST"
+        class="row mt-5 g-5 needs-validation card"
+        style="width: 18rem"
+        enctype="multipart/form-data"
+        novalidate
+      >
+        <h4 class="card-header">Upload</h4>
+        <div class="col-12">
+          <label for="vidTitle " class="form-label">Titulo</label>
+          <input
+            type="text "
+            class="form-control"
+            id="vidTitle"
+            name="vidTitle"
+            value="Video1 "
+            required
+          />
+          <div class="invalid-feedback">Ingresa un titulo para el video</div>
+        </div>
+        <div class="col-12">
+          <label for="vidDescription" class="form-label">Descripción</label>
+          <textarea
+            class="form-control"
+            id="vidDescription"
+            name="vidDescription"
+            value="Video de cosas "
+            required
+            minlength="30"
+            row="40"
+          >
+Ingresa la descripcion del video con un minimo de 15 palabras</textarea
+          >
+          <div class="invalid-feedback">
+            Ingresa la descipcion del video para el video
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="tag">Categoría</label>
+          <select class="form-select" id="tag" name="tag" required>
+            <option selected disabled value="">Tag...</option>
+            <option value="education">Educación</option>
+            <option value="science">Ciencia</option>
+            <option value="entertainment">Entretenimiento</option>
+          </select>
+          <div class="invalid-feedback">Please select a tag.</div>
+        </div>
+
+        <div class="mt-5 col-12">
+          <label for="formFileSm" class="form-label">Subir video</label>
+          <br />
+          <input
+            class="form-control form-control-sm"
+            id="uploaded_video"
+            name="uploaded_video"
+            type="file"
+            required
+          />
+          <div class="invalid-feedback">Please select a valid file.</div>
+        </div>
+
+        <div class="col-12 mb-4 d-flex justify-content-around">
+          <button class="btn btn-primary" type="submit ">Upload</button>
+        </div>
+      </form>
+    </div>
+    <!-- end form -->
+    <%- include ('partials/mainFooter')%>
+    <script src="js/validateForm.js "></script>
+  </body>
+</html>

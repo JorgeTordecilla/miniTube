@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include ('partials/mainHead')%>
+    <script
+      src="https://kit.fontawesome.com/6fc7def821.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Mini Youtube | PlayVideo</title>
+  </head>
+  <body>
+    <%- include ('partials/navBar')%> <%if(pagination == 0){%>
+    <h1 class="d-flex justify-content-evenly mt-5 bg-warning">
+      Video no encontrado
+    </h1>
+    <%}%>
+    <div class="container d-flex justify-content-evenly flex-wrap">
+      <% videos.forEach((video)=>{ %>
+      <div class="card m-5 video" style="width: 20em">
+        <a href="/playVideo?fn=<%-video.filename%>">
+          <img src=" /img/videotemplatebg.png " class="card-img-top" />
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><%-video.vidTitle%></h5>
+          <a href="?tag=<%-video.tag%>" class="small link-info">
+            Tag: <%-video.tag%>
+          </a>
+          <p class="card-text"><%-video.vidDescription%></p>
+          <div class="d-flex justify-content-evenly">
+            <a href="/playVideo?fn=<%-video.filename%>" class="btn btn-primary">
+              watch
+              <i class="far fa-play-circle"></i>
+            </a>
+            <div class="btn btn-warning" disabled>
+              <i class="fas fa-eye"></i>
+              <span id="views"> <%-video.views%> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <div id="pagination" class="d-flex justify-content-evenly mb-5">
+      <nav aria-label="..." class="mb-5">
+        <ul class="pagination">
+          <%let page = 0%> <%for(let i = 0; i<= pagination; i+=limit){%>
+          <li class="page-item">
+            <a
+              class="page-link"
+              href="?page=<%-++page%>&limit=<%-limit%>&search=<%-search%>&tag=<%-tag%>"
+              ><%-page%></a
+            >
+          </li>
+          <%}%>
+        </ul>
+      </nav>
+    </div>
+    <%- include ('partials/mainFooter')%>
+  </body>
+</html>
