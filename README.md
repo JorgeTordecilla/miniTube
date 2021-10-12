@@ -1,4 +1,4 @@
-#miniTube
+# miniTube
 
 Aplicativo web para ver y subir video filtrados por tag  o por busqueda.
 
@@ -10,6 +10,9 @@ An in-depth paragraph about your project and overview of use.
 ### Dependencias
 
 * Ejecutar el comando npm i, para instalar las dependencias necesrias.
+```
+npm i
+```
 * Se rrequire una conexion a mongoDB en el puerto 27017
 * En la carpte test se encuntra un video de prueba
 
