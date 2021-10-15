@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 const path = require("path");
 
 const app = express();
-const port = process.env.PORT;
 const viewsPath = path.join(__dirname, "/../views");
 const publicDirectoryPath = path.join(__dirname, "../public");
+
 app.set("view engine", "ejs");
 app.set("views", viewsPath);
 app.use(express.json());

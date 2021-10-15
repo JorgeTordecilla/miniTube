@@ -1,12 +1,12 @@
 const Video = require("../models/video");
 
-const tag = async (req, res, next) => {
-  const tag = req.query.tag || req.query.search || " ";
+const indexFilters = async (req, res, next) => {
+  const indexFilter = req.query.tag || req.query.search || " ";
   const page = parseInt(req.query.page) || 1;
   const limit = parseInt(req.query.limit) || 3;
   const skip = (page - 1) * limit;
   try {
-    let results = await Video.find({ $text: { $search: tag } })
+    let results = await Video.find({ $text: { $search: indexFilter } })
       .sort({ views: -1, score: { $meta: "textScore" } })
       .limit(limit)
       .skip(skip)
@@ -29,4 +29,4 @@ const tag = async (req, res, next) => {
   }
 };
 
-module.exports = tag;
+module.exports = indexFilters;
